@@ -1,4 +1,14 @@
 <%= form_with model: kitten do |form| %>
+  <% if kitten.errors.any? %>
+    <div class="alert">
+      <ul>
+        <% kitten.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
     <%= form.label :name %>
     <%= form.text_field :name %>
